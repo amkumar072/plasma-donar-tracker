@@ -139,8 +139,8 @@ export class TrackerAddEditPagePage implements OnInit {
     <p>  OtherNumber: ${tracker.otherNumber == null ? '' : tracker.otherNumber} </p>
     <p>  City: ${tracker.city}</p>
     <p>  State: ${tracker.state}</p>
-    <p>  Ready to donate Blood/Plasma? : ${tracker.isReadyDonatePlasma}</p>
-    <p>  Donated Blood/Plasma in last 30 Days?: ${tracker.isDonatedForPast30Days}</p>
+    <p>  Ready to donate Plasma? : ${tracker.isReadyDonatePlasma}</p>
+    <p>  Donated Plasma in last 30 Days?: ${tracker.isDonatedForPast30Days}</p>
     <p>  Blood Group: ${tracker.bloodGroup}</p>
 
 
