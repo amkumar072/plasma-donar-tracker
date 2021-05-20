@@ -1,0 +1,111 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import "~@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+// Mat table custom
+table {
+  width: 100%;
+}
+
+table th.mat-header-cell,
+table td.mat-cell,
+table td.mat-footer-cell {
+  padding: 0px 4px;
+}
+
+table tr td.mat-cell:last-of-type.action-btn,
+table tr td.mat-footer-cell:last-of-type.action-btn,
+table tr th.mat-header-cell:last-of-type.action-btn {
+  padding-right: 0px;
+  text-align: right;
+  width: 36px;
+  ion-buttons {
+    display: block;
+    float: right;
+    width: 36px;
+  }
+  ion-button {
+    width: 36px;
+    --padding-start: 0px;
+    --padding-end: 0px;
+  }
+}
+
+tr.example-element-row {
+  text-align: left;
+}
+
+tr.example-element-row:not(.example-expanded-row):hover,
+tr.example-element-row:not(.example-expanded-row):active {
+  // cursor: pointer;
+  // transform: scale(1.01);
+  // transition: all 0.3s ease;
+  border: 1.5px solid #b6b1b1;
+}
+
+.required-field::before {
+  content: "*";
+  color: red;
+}
+
+// Start : Modal display
+.modal-fullscreen {
+  .modal-wrapper {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    position: absolute;
+    top: 5;
+    bottom: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 95%;
+  }
+}
+
+.modal-75-percentage-screen {
+  .modal-wrapper {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    position: absolute;
+    top: 5;
+    bottom: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 75%;
+  }
+}
+
+// End: Modal display
+
+.my-custom-alert .alert-wrapper {
+  min-width: 400px !important;
+}
+
+.my-custom-alert .alert-message {
+  max-height: 90% !important;
+}

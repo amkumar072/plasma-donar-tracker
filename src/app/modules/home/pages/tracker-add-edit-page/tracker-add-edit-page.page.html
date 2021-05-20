@@ -1,0 +1,196 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Add</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form *ngIf="form" [formGroup]="form">
+    <ion-grid>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating"> First Name<span class="required-field"></span></ion-label>
+            <ion-input type="text" formControlName="firstName" maxlength="25"></ion-input>
+          </ion-item>
+          <ion-item
+            *ngIf="form.get('firstName').invalid && (form.get('firstName').dirty || form.get('firstName').touched)"
+            lines="none">
+            <ion-label *ngIf="form.get('firstName').errors.required" color="danger">Enter the firstName</ion-label>
+            <ion-label *ngIf="form.get('firstName').errors.maxlength" color="danger">Enter the 25 Chars
+            </ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">Last Name</ion-label>
+            <ion-input type="text" formControlName="lastName" maxlength="25">
+            </ion-input>
+          </ion-item>
+          <ion-item *ngIf="form.get('lastName').invalid && (form.get('lastName').dirty || form.get('lastName').touched)"
+            lines="none">
+            <ion-label *ngIf="form.get('lastName').errors.required" color="danger">Enter the lastName</ion-label>
+            <ion-label *ngIf="form.get('lastName').errors.maxlength" color="danger">Enter the 25 Chars
+            </ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">Phone Number(primary)<span class="required-field"></span></ion-label>
+            <ion-input type="string" formControlName="mobile" input="decimal" minlength="10" maxlength="10"
+              pattern="\d*">
+            </ion-input>
+          </ion-item>
+          <ion-item *ngIf="form.get('mobile').invalid && (form.get('mobile').dirty || form.get('mobile').touched)"
+            lines="none">
+            <ion-label *ngIf="form.get('mobile').errors.required" color="danger">Enter the Phone Number
+            </ion-label>
+            <ion-label *ngIf="form.get('mobile').errors.pattern" color="danger">Enter only Numbers
+            </ion-label>
+            <ion-label *ngIf="form.get('mobile').errors.minlength" color="danger">Enter the 10 Digits
+            </ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">Other Number</ion-label>
+            <ion-input type="string" formControlName="otherNumber" input="decimal" minlength="10" maxlength="10"
+              pattern="\d*">
+            </ion-input>
+          </ion-item>
+          <ion-item
+            *ngIf="form.get('otherNumber').invalid && (form.get('otherNumber').dirty || form.get('otherNumber').touched)"
+            lines="none">
+            <ion-label *ngIf="form.get('otherNumber').errors.required" color="danger">Enter the Phone Number
+            </ion-label>
+            <ion-label *ngIf="form.get('otherNumber').errors.pattern" color="danger">Enter only Numbers
+            </ion-label>
+            <ion-label *ngIf="form.get('otherNumber').errors.minlength" color="danger">Enter the 10 Digits
+            </ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">City <span class="required-field"></span></ion-label>
+            <ion-input type="string" formControlName="city" maxlength="25">
+            </ion-input>
+          </ion-item>
+          <ion-item *ngIf="form.get('city').invalid && (form.get('city').dirty || form.get('city').touched)"
+            lines="none">
+            <ion-label color="danger">Enter the city</ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">State <span class="required-field"></span></ion-label>
+            <ion-select value="ALL" formControlName="state" interface="action-sheet">
+              <ion-select-option *ngFor="let list of stateLists" value={{list}}>
+                {{list}}
+              </ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item *ngIf="form.get('state').invalid && (form.get('state').dirty || form.get('state').touched)"
+            lines="none">
+            <ion-label color="danger">Enter the state</ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">Ready to donate Blood/Plasma? <span class="required-field"></span>
+            </ion-label>
+            <ion-select value="ALL" formControlName="isReadyDonatePlasma" interface="action-sheet">
+              <ion-select-option *ngFor="let list of lists" value={{list}}>
+                {{list}}
+              </ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item
+            *ngIf="form.get('isReadyDonatePlasma').invalid && (form.get('isReadyDonatePlasma').dirty || form.get('isReadyDonatePlasma').touched)"
+            lines="none">
+            <ion-label color="danger">Select the Ready to donate Blood/Plasma</ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+
+
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating"> Donated Blood/Plasma in last 30 Days? <span class="required-field"></span>
+            </ion-label>
+            <ion-select value="ALL" formControlName="isDonatedForPast30Days" interface="action-sheet">
+              <ion-select-option *ngFor="let list of lists" value={{list}}>
+                {{list}}
+              </ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item
+            *ngIf="form.get('isDonatedForPast30Days').invalid && (form.get('isDonatedForPast30Days').dirty || form.get('isDonatedForPast30Days').touched)"
+            lines="none">
+            <ion-label color="danger">Select the Donated Blood/Plasma in last 30 Days</ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">Blood Group <span class="required-field"></span></ion-label>
+            <ion-select value="ALL" formControlName="bloodGroup" interface="action-sheet">
+              <ion-select-option *ngFor="let list of bloodGroupList" value={{list}}>
+                {{list}}
+              </ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item
+            *ngIf="form.get('bloodGroup').invalid && (form.get('bloodGroup').dirty || form.get('bloodGroup').touched)"
+            lines="none">
+            <ion-label color="danger">Select the bloodGroup</ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+
+
+
+      <ion-row>
+        <ion-col size-sm="3" offset-sm="3">
+          <ion-button expand="block" color="primary" (click)="onClick()">
+            <ion-label color="light"> {{displayButtonText}}</ion-label>
+          </ion-button>
+        </ion-col>
+        <ion-col size-sm="3">
+          <ion-button expand="block" color="danger" (click)="onCancel()">
+            <ion-label color="light"> Cancel</ion-label>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+
+  </form>
+
+</ion-content>

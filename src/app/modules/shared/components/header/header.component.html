@@ -1,0 +1,27 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start" (click)="home()">
+      <ion-button color="secondary">
+        <ion-thumbnail>
+          <img src="./../../../../../assets/icon/favicon.png">
+        </ion-thumbnail>
+      </ion-button>
+    </ion-buttons>
+
+
+    <ion-buttons slot="end">
+      <ion-button (click)="onHelp()">
+        <ion-icon slot="icon-only" name="help-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end" *ngIf="isVisibleLogout" (click)="logOut()">
+      <ion-button color="danger">
+        <ion-icon name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      Blood/Plasma Donar's
+    </ion-title>
+  </ion-toolbar>
+</ion-header>

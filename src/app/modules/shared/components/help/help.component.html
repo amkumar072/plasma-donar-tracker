@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end" (click)="dismissComp()">
+      <ion-button>
+        <ion-icon slot="icon-only" name="close-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Help/Queries</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <h3>
+          {{CONSENT_MESSAGE}}
+        </h3>
+
+        <h3>
+          * Do trust all members using this app won't misuse information for personnel gain and also usage of
+          information for commercial purposes is prohibited/unwarranted.
+        </h3>
+      </ion-col>
+    </ion-row>
+    <br />
+
+
+    <ion-row>
+      <ion-col size="12">
+        For any queries/feedback please get in touch with the admin team
+
+      </ion-col>
+      <ion-col>
+        <ion-item lines="none">
+          <ion-icon name="mail-outline" color="danger"></ion-icon> &nbsp;
+          <ion-label>
+            <a href="mailto:helpcovidwarriors2021@gmail.com" target="_blank">Click here</a> /
+            helpcovidwarriors2021@gmail.com
+
+          </ion-label>
+
+        </ion-item>
+
+
+      </ion-col>
+    </ion-row>
+
+
+
+  </ion-grid>
+
+</ion-content>
+
+<ion-footer>
+  {{FOOOTER_MESSAGE}}
+</ion-footer>
